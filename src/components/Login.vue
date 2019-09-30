@@ -55,10 +55,10 @@ export default {
         password: this.password
       })
         .then(response => this.loginSuccessful(response))
-        .catch(() => this.loginFailed());
+        .catch((e) => this.loginFailed(e));
     },
     loginSuccessful(res) {
-      // console.log(res);
+      console.log(res);
       if (!res.data.accessToken) {
         this.loginFailed();
         return;
@@ -68,9 +68,11 @@ export default {
       this.error = false;
       this.$router.push({name: 'dashboard'}) // redirect
     },
-    loginFailed() {
+    loginFailed(e) {
+      console.log(e.message);
+      
       this.error = "Login failed!";
-      delete localStorage.token;
+      delete localStorage.accessToken;
     }
   }
 };

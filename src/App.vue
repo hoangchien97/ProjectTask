@@ -5,12 +5,17 @@
 </template>
 
 <script>
+import Dashboard from './components/Dashboard.vue'
 import Login from './components/Login.vue'
-
+import Register from './components/Register.vue'
+import Tasks from './components/Task.vue'
 export default {
   name: 'app',
   components: {
-    Login
+    Dashboard,
+    Login,
+    Register,
+    Tasks
   }
 }
 </script>

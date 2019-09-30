@@ -12,15 +12,32 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tasks</a>
+            <!-- <a class="nav-link" href="#">Tasks</a> -->
+            <router-link 
+              tag="a"
+              class="nav-link"
+              to="/tasks"
+            >Tasks</router-link>
           </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" v-if="username">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username}}</a>
             <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="#">Logout</a>
+              <!-- <a class="dropdown-item" href="#">Logout</a> -->
+              <router-link 
+                tag="a"
+                class="dropdown-item"
+                to="/login"
+              >Logout</router-link>
             </div>
+          </li>
+          <li class="nav-item dropdown" v-if="!username">
+            <router-link 
+                tag="a"
+                class="dropdown-item"
+                to="/login"
+              >Login</router-link>
           </li>
         </ul>
       </div>

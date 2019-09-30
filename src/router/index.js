@@ -1,6 +1,7 @@
 import Login from './../components/Login'
 import Register from './../components/Register'
 import Dashboard from './../components/Dashboard'
+import Task from './../components/Task'
 
 export const routes = [
     {
@@ -18,4 +19,9 @@ export const routes = [
         name: 'pageRegister',
         component: Register
     },
+    {
+        path: '/tasks',
+        name: 'listTasks',
+        component: Task
+    }
 ]
