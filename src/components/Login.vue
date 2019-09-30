@@ -57,7 +57,7 @@ export default {
         .catch(() => this.loginFailed());
     },
     loginSuccessful(res) {
-      // console.log(res);
+      console.log(res);
       if (!res.data.accessToken) {
         this.loginFailed();
         return;
