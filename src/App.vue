@@ -1,18 +1,23 @@
 <template>
-  <div>
-    <router-view></router-view>
+  <div id="app" style="margin-top: 0">
+    <Header/>
+    <div class="container">
+      <transition name="slide">
+        <router-view> </router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
-import Dashboard from './components/Dashboard.vue'
+import Header from './components/Header.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
 import Tasks from './components/Task.vue'
 export default {
   name: 'app',
   components: {
-    Dashboard,
+    Header,
     Login,
     Register,
     Tasks
