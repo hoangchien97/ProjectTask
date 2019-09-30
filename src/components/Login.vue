@@ -26,6 +26,7 @@
         </div>
       </md-card-content>
       <div>
+        <div class="alert alert-danger" v-if="error">{{ error }}</div>
         <md-button class="md-raised md-primary" @click.prevent="handleLogin">Login</md-button>
         <p class="md-subheader">
           Don't have account ?
@@ -57,13 +58,15 @@ export default {
         .catch(() => this.loginFailed());
     },
     loginSuccessful(res) {
-      console.log(res);
+      // console.log(res);
       if (!res.data.accessToken) {
         this.loginFailed();
         return;
       }
       localStorage.setItem("accessToken", JSON.stringify(res.data.accessToken));
+      sessionStorage.setItem('username', res.data.username);
       this.error = false;
+      this.$router.push({name: 'dashboard'}) // redirect
     },
     loginFailed() {
       this.error = "Login failed!";
@@ -78,5 +81,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center
+  }
+  .alert-danger{
+    color: red;
   }
 </style>
